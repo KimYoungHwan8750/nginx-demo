@@ -1,0 +1,25 @@
+services:
+  fastapi:
+    container_name: fastapi
+    build:
+      context: .
+      dockerfile: Dockerfile-fastapi
+    ports:
+      - "8000:8000"
+    networks:
+      - nginx-network
+  nginx:
+    container_name: nginx
+    depends_on:
+      - fastapi
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "80:80"
+    networks:
+      - nginx-network
+      
+networks:
+  nginx-network:
+    driver: bridge
