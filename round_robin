@@ -1,4 +1,4 @@
 FROM nginx:trixie-perl
 COPY *.html /usr/share/nginx/html/
-COPY auto_round_robbin.conf /etc/nginx/conf.d/default.conf
+COPY round_robin.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]

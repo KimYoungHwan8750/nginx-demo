@@ -24,7 +24,7 @@ services:
       - fastapi3
     build:
       context: .
-      dockerfile: round_robbin
+      dockerfile: round_robin
     ports:
       - "3336:80"
     networks:
