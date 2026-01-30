@@ -1,5 +1,5 @@
 FROM python:3.12-bookworm
 RUN pip install "fastapi[standard]"
-COPY . /app
 WORKDIR /app
+COPY main.py .
 CMD ["fastapi", "run", "main.py", "--port", "8000"]

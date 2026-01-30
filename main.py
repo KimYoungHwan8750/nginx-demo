@@ -1,15 +1,27 @@
 from fastapi import FastAPI
+import socket
 
 app = FastAPI()
 
+CONTAINER_ID = socket.gethostname()
+
 @app.get("/")
 def root():
-    return {"page": "index"}
+    return {
+        "api": "default",
+        "served_by": CONTAINER_ID
+    }
 
-@app.get("/page1")
-def page1():
-    return {"page": "page1"}
+@app.get("/api1")
+def api1():
+    return {
+        "api": "api1",
+        "served_by": CONTAINER_ID
+    }
 
-@app.get("/page2")
-def page2():
-    return {"page": "page2"}
+@app.get("/api2")
+def api2():
+    return {
+        "api": "api2",
+        "served_by": CONTAINER_ID
+    }
