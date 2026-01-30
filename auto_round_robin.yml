@@ -10,7 +10,7 @@ services:
       - fastapi
     build:
       context: .
-      dockerfile: auto_round_robbin
+      dockerfile: auto_round_robin
     ports:
       - "3336:80"
     networks:
